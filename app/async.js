@@ -6,8 +6,8 @@ asyncAnswers = {
    * @param value - Any value
    * @returns {then: function} A promise like object containing a then property.
    */
-  async: function async(value) {
-
+  async: async function async(value) {
+    return (value);
   },
 
   /**
@@ -20,7 +20,14 @@ asyncAnswers = {
    * @param {String} url - a valid url
    * @returns {then: function} A promise like object containing a then property.
    */
-  manipulateRemoteData: function manipulateRemoteData(url) {
-
+  manipulateRemoteData: async function manipulateRemoteData(url) {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      let people = data.people;
+      return people.map(x => x.name).sort();
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
