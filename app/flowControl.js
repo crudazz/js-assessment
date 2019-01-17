@@ -12,6 +12,8 @@ flowControlAnswers = {
    * @returns {String} The string 'fizz', 'buzz', or 'fizzbuzz'
    */
   fizzBuzz: function fizzBuzz(num) {
-
+    return (typeof num == 'number') 
+      ? (num % 3 === 0 && num % 5 === 0) ? 'fizzbuzz' : (num % 3 === 0) ? 'fizz' : (num % 5 === 0) ? 'buzz' : num
+      : false;
   },
 };
