@@ -18,7 +18,7 @@ arraysAnswers = {
    * @returns {Number} The numerical sum of all items in arr.
    */
   sum: function sum(arr) {
-    return arr.reduce((a,b) => a + b, 0);
+    return arr.reduce((a, b) => a + b, 0);
   },
 
   /**
@@ -29,9 +29,8 @@ arraysAnswers = {
    * @returns {Number[]} A new array containing all numbers from arr except item.
    */
   remove: function remove(arr, item) {
-    return [...new Set(
-      arr.filter( x => x !== item)
-    )];
+    return arr.filter(x => x !== item);
+
   },
 
   /**
@@ -41,7 +40,7 @@ arraysAnswers = {
    * @param {Number} item - A number to be appended to the end of arr
    * @returns {Number[]} The array arr, with item appended.
    */
-  append: function append(arr, item) {    
+  append: function append(arr, item) {
     return [...arr, item];
   },
 
@@ -52,7 +51,7 @@ arraysAnswers = {
    * @returns {Number[]} The array arr, with the last element removed..
    */
   truncate: function truncate(arr) {
-    return arr.splice(0,arr.length-1);
+    return arr.splice(0, arr.length - 1);
   },
 
   /**
@@ -98,7 +97,7 @@ arraysAnswers = {
   insert: function insert(arr, item, index) {
     let newArray = [];
     arr.forEach((e, i) => {
-      if(i === index ){
+      if (i === index) {
         newArray.push(item);
       }
       newArray.push(e);
@@ -114,7 +113,7 @@ arraysAnswers = {
    * @returns {Number} The count of the number of times the number item appeared in arr.
    */
   count: function count(arr, item) {
-    return arr.filter( x => x===item).length;
+    return arr.filter(x => x === item).length;
   },
 
   /**
@@ -124,9 +123,9 @@ arraysAnswers = {
    * @returns {Number[]} An array of numbers that appear in arr more than once.
    */
   duplicates: function duplicates(arr) {
-      return [...new Set(
-        arr.filter((value, index, self) => self.indexOf(value) !== index)
-      )];
+    return [...new Set(
+      arr.filter((value, index, self) => self.indexOf(value) !== index)
+    )];
   },
 
   /**
@@ -136,7 +135,7 @@ arraysAnswers = {
    * @returns {Number[]} A new array of numbers that contains the elements of arr squared.
    */
   square: function square(arr) {
-    return arr.map( x => x **2 );
+    return arr.map(x => x ** 2);
   },
 
   /**
@@ -146,13 +145,14 @@ arraysAnswers = {
    * @param {Number} target - A number to find all occurences of.
    * @returns {Number[]} A new array of numbers which represent the indices of target in arr.
    */
-  findAllOccurrences: function findAllOccurrences(arr, target) {    
-    return  [...new Set(arr
-        .map( (value, index) => {
-          if(value == target) {
-            return index; 
-          }})
-          .filter( y => y != undefined)
-      )];
+  findAllOccurrences: function findAllOccurrences(arr, target) {
+    return [...new Set(arr
+      .map((value, index) => {
+        if (value == target) {
+          return index;
+        }
+      })
+      .filter(y => y != undefined)
+    )];
   },
 };
